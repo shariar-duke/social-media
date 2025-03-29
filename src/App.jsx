@@ -1,14 +1,17 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
-    <div className="page-container">
-      <div className="border border-black">
-        <h1 className="text-3xl font-bold underline text-lwsGreen">
-          Hello world!
-        </h1>
-      </div>
-    </div>
+    <>
+      <Routes>
+        <Route element={<HomePage />} path="/" exact />
+        <Route element={<LoginPage />} path="/login" />
+        <Route element={<RegistrationPage />} path="/register" />
+        <Route element={<ProfilePage />} path="/me" />
+        <Route element={<NotFoundPage />} path="*" />
+      </Routes>
+    </>
   );
 }
 
