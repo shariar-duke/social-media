@@ -1,23 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Inter", "sans-serif";
+  --font-display: "Inter", sans-serif;
   --color-lwsGreen: #00d991;
   --color-deepDark: #17181c;
   --color-mediumDark: #1e1f24;
   --color-lighterDark: #27292f;
-  --color-white:#FFFFFF
+  --color-white: #ffffff;
+  --color-cardBorder: #3f3f3f;
+  --color-authInputBorder: #cccccc;
+}
 
-  /* Global Padding Variable */
-  --spacing-page: 1rem;
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
 }
 
 @layer base {
   body {
     @apply bg-deepDark text-lighterDark;
-    font-family: var(
-      --font-display
-    ); /* Required since Tailwind doesn't auto-create font-* classes from theme */
+    font-family: var(--font-display);
   }
   .page-container {
     padding: var(--spacing-page);
@@ -25,11 +28,40 @@
 }
 
 @layer components {
-  .flex-center {
-    @apply flex items-center justify-center;
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 rounded-md bg-lighterDark px-5 py-2.5 text-sm font-medium text-white hover:bg-deepDark lg:text-lg;
   }
 
-  .btn-primary {
-    @apply flex-center gap-2 rounded-md bg-lighterDark px-5 py-2.5 text-sm font-medium text-white hover:bg-deepDark lg:text-lg;
+  .icon-btn {
+    @apply flex items-center justify-center rounded-md bg-lighterDark  p-1.5 font-medium text-white hover:bg-deepDark;
+  }
+
+  .card {
+    @apply flex items-center justify-center rounded-md border border-cardBorder bg-mediumDark  p-4 lg:px-7 lg:py-5;
+  }
+
+  .form-control {
+    @apply mb-6 space-y-2.5;
+  }
+
+  .auth-label {
+    @apply leading-[138%] lg:text-lg;
+  }
+
+  .auth-input {
+    @apply w-full rounded-md border border-authInputBorder/[14%] bg-lighterDark p-1.5 focus:outline-none lg:p-3;
+  }
+
+  .post-avater {
+    @apply max-w-10 max-h-10 rounded-full lg:max-h-[58px] lg:max-w-[58px];
+  }
+
+  /* Action Modal  */
+  .action-modal-container {
+    @apply flex items-center justify-center rounded-md border border-cardBorder bg-mediumDark  p-4 lg:px-7 lg:py-5 absolute right-full top-6 min-w-[200px] divide-y divide-cardBorder py-2 [& > button]:py-2;
+  }
+
+  .action-menu-item {
+    @apply flex w-full items-center gap-2 text-gray-100 transition-all;
   }
 }
