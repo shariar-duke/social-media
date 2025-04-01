@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/common/Header";
 import { useAuth } from "../hooks/useAuth";
 
 export default function HomePage() {
@@ -7,7 +6,6 @@ export default function HomePage() {
   console.log(auth);
   return (
     <div>
-      <Header />
       <p>HomePage</p>
     </div>
   );
