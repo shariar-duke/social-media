@@ -19,7 +19,7 @@
 
 @layer base {
   body {
-    @apply bg-deepDark text-lighterDark;
+    @apply bg-deepDark text-white;
     font-family: var(--font-display);
   }
   .page-container {
