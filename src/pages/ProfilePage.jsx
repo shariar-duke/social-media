@@ -17,6 +17,8 @@ export default function ProfilePage() {
         const response = await api.get(
           `${import.meta.env.VITE_SERVER_BASE_URL}/profile/${auth?.user.id}`
         );
+
+        console.log("posts are", response?.data?.posts);
         setUser(response?.data.user);
         setPosts(response?.data.posts);
       } catch (error) {

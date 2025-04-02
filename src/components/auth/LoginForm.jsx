@@ -27,16 +27,11 @@ export default function LoginForm() {
         formData
       );
 
-      console.log(response);
-
       if (response.status === 200) {
         const { token, user } = response.data;
         if (token) {
           const authToken = token.token;
           const refreshToken = token.refreshToken;
-
-          console.log(`Login time auth token ${authToken}`);
-          console.log(`Login time refresh token ${refreshToken}`);
 
           setAuth({ user, authToken, refreshToken });
           navigate("/");
